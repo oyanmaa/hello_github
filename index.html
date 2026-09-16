@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <title>FF14 赤魔導士 (Red Mage) 概要ガイド</title>
+    <style>
+        :root {
+            --primary-color: #c82b2b;
+            --secondary-color: #8b0000;
+            --bg-color: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --text-color: #e0e0e0;
+            --white-mana: #e6f2ff;
+            --black-mana: #8a2be2;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        h2 {
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* ゲージ表現 */
+        .mana-container {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .mana-box {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .white-mana {
+            background-color: #3a3f58;
+            color: #8bbdff;
+            border: 1px solid #8bbdff;
+        }
+
+        .black-mana {
+            background-color: #382440;
+            color: #d17bff;
+            border: 1px solid #d17bff;
+        }
+
+        /* テーブルスタイル */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #333;
+            color: var(--primary-color);
+        }
+
+        .badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>赤魔導士 (Red Mage)</h1>
+        <div class="subtitle">FF14 ジョブガイド概要 / 遠遠攻撃魔法DPS（キャスター）</div>
+    </header>
+
+    <!-- 特徴 -->
+    <section class="card">
+        <h2>ジョブの特徴</h2>
+        <p>黒魔法の攻撃力と白魔法の回復・蘇生能力を併せ持つハイブリッドな魔法アタッカー。白と黒のバランスを取りつつ「バランスゲージ」を溜め、強力な近接コンボを叩き込む戦闘スタイルが特徴です。</p>
+        <ul>
+            <li><strong>連続魔 (特性):</strong> 詠唱のある魔法を使用すると、次の魔法が即時発動（無詠唱）になる独自システム。</li>
+            <li><strong>連続蘇生:</strong> 「連続魔」を利用して即座に味方を蘇生（ヴァルレイズ）できるため、パーティ立て直しの要となる。</li>
+            <li><strong>機動性と柔軟性:</strong> 魔法と近接攻撃を織り交ぜたスタイリッシュな戦いが可能。</li>
+        </ul>
+    </section>
+
+    <!-- メカニクス（ゲージ） -->
+    <section class="card">
+        <h2>固有システム：バランスゲージ</h2>
+        <p>白魔法系のスキルで「ホワイトマナ」、黒魔法系のスキルで「ブラックマナ」が溜まります。両方のマナをバランスよく50以上溜めることで強力な「エンコンボ」へ派生できます。</p>
+        
+        <div class="mana-container">
+            <div class="mana-box white-mana">ホワイトマナ (White Mana)<br>ヴァルエアロ / ヴァルストーン など</div>
+            <div class="mana-box black-mana">ブラックマナ (Black Mana)<br>ヴァルサンダー / ヴァルファイア など</div>
+        </div>
+        <p style="font-size: 0.9em; color: #bbb;">※片方のマナが偏りすぎると、もう片方のマナが溜まりにくくなるため均等に溜めるのがコツです。</p>
+    </section>
+
+    <!-- 主なスキル -->
+    <section class="card">
+        <h2>代表的なスキル</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>スキル名</th>
+                    <th>種別</th>
+                    <th>概要・特徴</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ヴァルサンダー / ヴァルエアロ</strong></td>
+                    <td>魔法</td>
+                    <td>詠唱時間が長いため、短詠唱魔法のあとに「連続魔」を乗せて撃つメイン火力技。</td>
+                </tr>
+                <tr>
+                    <td><strong>ジョルラ / ヴァルファイア / ヴァルストーン</strong></td>
+                    <td>魔法</td>
+                    <td>詠唱時間が短く、「連続魔」を付与するための始動技。</td>
+                </tr>
+                <tr>
+                    <td><strong>エンリポスト 〜 エンコンボ</strong></td>
+                    <td>アビリティ/近接</td>
+                    <td>マナを消費して放つ強化近接攻撃。ここからさらに強力なフィニッシュ魔法へ繋がる。</td>
+                </tr>
+                <tr>
+                    <td><strong>ヴァルフレア / ヴァルホーリー</strong></td>
+                    <td>魔法</td>
+                    <td>エンコンボのフィニッシュ技。マナの調整にも利用する。</td>
+                </tr>
+                <tr>
+                    <td><strong>エンボルデン</strong></td>
+                    <td>アビリティ</td>
+                    <td>自身の魔法与ダメージと、周囲のPTメンバーの与物理ダメージを上昇させるシナジーバフ。</td>
+                </tr>
+                <tr>
+                    <td><strong>ヴァルレイズ</strong></td>
+                    <td>魔法</td>
+                    <td>戦闘不能のPTメンバーを蘇生。「連続魔」と組み合わせることで即時蘇生が可能。</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 装備・ステータス -->
+    <section class="card">
+        <h2>装備と優先サブステータス</h2>
+        <p>赤魔導士は<strong>「キャスター系（魔法DPS）」</strong>の装備（〜・オブ・キャスター）を着用します。武器は「細剣（レイピア）」と「魔法具（クリスタル）」を組み合わせた固有武器を使用します。</p>
+        
+        <h3>優先サブステータス</h3>
+        <ol>
+            <li><span class="badge">最優先</span> <strong>クリティカル (Critical Rate)</strong>：ダメージ量およびクリティカル率を大幅上昇。</li>
+            <li><span class="badge">優先</span> <strong>ダイレクトヒット (Direct Hit)</strong>：一定確率でダメージを底上げ。</li>
+            <li><span class="badge">調整</span> <strong>意思力 (Determination)</strong>：全体的な与ダメージ・回復量を底上げ。</li>
+            <li><span class="badge">好み/調整</span> <strong>スペルスピード (Spell Speed)</strong>：詠唱速度やGCDを短縮（※赤魔導士は連続魔があるため、高めすぎず調整することが多い）。</li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>&copy; SQUARE ENIX CO., LTD. All Rights Reserved. | FF14 赤魔導士 簡易まとめ</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
